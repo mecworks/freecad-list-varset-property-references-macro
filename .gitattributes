@@ -1,0 +1,2 @@
+# Force Unix (LF) line endings in the repository and on checkout, on all platforms.
+* text=auto eol=lf
