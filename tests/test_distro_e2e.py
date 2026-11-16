@@ -218,10 +218,9 @@ finally:
 # --------------------------------------------------------------------------
 # D5: re-execution safety
 # --------------------------------------------------------------------------
-solo_path_ns2 = solo_path
-ns2 = {"__file__": solo_path_ns2, "__name__": "distro_e2e_re"}
+ns2 = {"__file__": solo_path, "__name__": "distro_e2e_re"}
 try:
-    exec(compile(gen_src, solo_path_ns2, "exec"), ns2)
+    exec(compile(gen_src, solo_path, "exec"), ns2)
     check("D5 second exec clean", True)
 except BaseException as exc:  # noqa: BLE001
     check("D5 second exec clean", False, repr(exc))
