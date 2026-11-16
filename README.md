@@ -8,9 +8,12 @@ fixed number into a feature, you can write a formula that reads from the
 VarSet (for example, a pad length of `Vars.Width * 2`), so changing the
 variable once updates every feature that uses it.
 
-The catch: FreeCAD has no built-in way to show *where* a variable is used.
-Before renaming or deleting one — or when a dimension mysteriously stops
-updating — you'd have to comb through every formula by hand.
+Renaming is the easy case: FreeCAD follows a rename and rewrites every
+reference for you. What it cannot tell you is *where* a variable is used at
+all — and that is exactly what you need before deleting one (is anything
+still bound to it?) or when migrating usages from an old variable to a new
+one, e.g. deprecating `HoleDia` in favor of `HoleDiameter`. Without that
+list, you'd have to comb through every formula by hand.
 
 This macro fills that gap. It opens a dialog where you pick a VarSet and one
 of its variables (FreeCAD calls them *properties*); the dialog then lists
