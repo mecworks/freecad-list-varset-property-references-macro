@@ -6,7 +6,7 @@ Date: 2026-11-15
 
 --- probe_api.py (full run) ---
 PYTHON: 3.11.14 | packaged by conda-forge | (main, Oct 13 2025, 14:00:26) [MSC v.1944 64 bit (AMD64)]
-FREECAD VERSION: ('1', '1', '4', '20260928 (Git shallow)', 'Unknown', '2026/09/28 13:46:34', '(HEAD detached at 4fd3bf320)', '4fd3bf320d9566a27e60069fc8387448aaa3a094')
+FREECAD VERSION: ('1', '1', '4', '20260928 (Git shallow)', 'Unknown', '2026-09-28 13:46:34', '(HEAD detached at 4fd3bf320)', '4fd3bf320d9566a27e60069fc8387448aaa3a094')
 MODULE PySide: ok
 MODULE PySide2: FAIL ModuleNotFoundError: No module named 'PySide2'
 MODULE PySide6: ok
