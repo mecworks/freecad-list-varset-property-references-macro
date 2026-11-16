@@ -1,0 +1,7 @@
+tmpdir: <TEMP>\fc_dr3_d0t27hxk
+S3: reopened names: ['DiskDep', 'DiskMaster']
+S4: VarSet-target bind RAISED ParserError: Failed to parse expression 'DiskMaster#Vars.W * 2'
+S5: DP.Len = 0.0 (expect 8.0)
+C1: FP-target bind ACCEPTED, engine = [('Len', 'DiskMaster#Src.Len * 2')]
+C1: DP.Len = 18.0 (expect 18.0)
+C2: in-memory-after-disk VarSet bind RAISED ParserError: Failed to parse expression 'FreshMaster#Vars.W * 2'

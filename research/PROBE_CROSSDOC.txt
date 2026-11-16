@@ -1,0 +1,32 @@
+FreeCAD 1
+A: Holder.Len (intra-doc control) = 20.0 mm
+
+=== B1: cross-doc reference by internal name ===
+B1: setExpression accepted: True
+B1: Part.ExpressionEngine = [('Len', 'Dims.Width * 2')]
+B1: Part.Len = 0.0 mm
+
+=== B2: cross-doc reference by label ===
+B2: setExpression accepted: True
+B2: Part.Len = 0.0 mm
+
+=== B3: qualified attempts ===
+B3[BaseFile.Dims.Width]: accepted: True
+B3[App.getDocument('BaseFile').Dims.Width]: raised: ParserError("Failed to parse expression 'App.getDocument('BaseFile').Dims.Width'")
+
+=== B4: App::Link to base-file object ===
+B4: link setup failed: RuntimeError('Linked document not saved')
+Traceback (most recent call last):
+  File "<PROJECT_ROOT>/research\probe_crossdoc.py", line 105, in <module>
+    lnk.LinkedObject = holder
+    ^^^^^^^^^^^^^^^^
+RuntimeError: Linked document not saved
+
+
+=== C: what the macro reports ===
+C1: find_usages(docA, Dims, Width) = [('Holder.Len', 'Dims.Width * 2')]
+C2: find_usages(docB, Dims, Width) = []
+C3: dangler.ExpressionEngine = [('Len', 'Dims.Width * 5')]
+C3: find_usages(docB, Dims, Width) after dangler = [('Dangler.Len', 'Dims.Width * 5')]
+
+=== DONE ===

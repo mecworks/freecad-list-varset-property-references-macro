@@ -1,0 +1,8 @@
+tmpdir: <TEMP>\fc_dr2_y181h140
+V3: master doc name before saveAs: 'DeadMaster'
+V3: master doc name after saveAs : 'DeadMaster'
+V3: consumer doc name after saveAs: 'DeadDep'
+V1 (both saved) : RAISED ParserError: Failed to parse expression 'DeadMaster#Vars.W * 2'
+V4 (nothing saved) : RAISED ParserError: Failed to parse expression 'MemMaster#Vars.W * 2'
+V2 (consumer unsaved) : RAISED ParserError: Failed to parse expression 'HalfMaster#Vars.W * 2'
+V5 (FP->FP) : ACCEPTED, engine = [('Len', 'FPMaster#Src.Len * 2')]

@@ -1,0 +1,17 @@
+FreeCAD 1
+A: base file saved to <TEMP>\fc_xdoc_3fluq34w\Base.FCStd
+A: Holder.Len = 20.0 mm
+A2: derived file saved to <TEMP>\fc_xdoc_3fluq34w\Derived.FCStd
+
+=== B4: App::Link to saved base-file object ===
+B4: link.Len = 20.0 mm
+B4: link.ExpressionEngine = []
+B4: Link appears in docB.Objects: True
+B4: Link TypeId = App::Link
+
+=== C: what the macro reports ===
+C1: find_usages(docA, Dims, Width) = [('Holder.Len', 'Dims.Width * 2')]
+C2: find_usages(docB, Dims, Width) = []
+C3: does the link's expression text appear anywhere in docB scan? False
+
+=== DONE ===

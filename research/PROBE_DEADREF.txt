@@ -1,0 +1,13 @@
+tmpdir: <TEMP>\fc_deadref_0uvgaf_j
+
+=== Q1/Q2: setExpression with missing doc name ===
+setExpression RAISED ParserError: Failed to parse expression 'GhostDoc#Vars.W * 2'
+ExpressionEngine: []
+state: ['Up-to-date']  Len = 0.0
+
+=== Q4: open a document named exactly 'GhostDoc' ===
+after opening GhostDoc: state: ['Up-to-date']  Len = 0.0 (expect 198.0 if revived)
+
+=== Q5: case-insensitive doc name match ===
+lowercase-name setExpression RAISED ParserError: Failed to parse expression 'ghostdoc2#Vars.W'
+with GHOSTDOC2 open, expr 'ghostdoc2#Vars.W': state: ['Up-to-date']  Len = 0.0 (expect 55.0 if case-insensitive)
