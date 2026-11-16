@@ -1,1 +1,48 @@
-=====================================================================\nPROBE RESULTS - FreeCAD 1.1.4 (Libs 1.1.4R20260928), Python 3.11.14\nHost: Windows, freecadcmd.exe headless, QT_QPA_PLATFORM=offscreen\nDate: 2026-11-15\n=====================================================================\n\n--- probe_api.py (full run) ---\r\nPYTHON: 3.11.14 | packaged by conda-forge | (main, Oct 13 2025, 14:00:26) [MSC v.1944 64 bit (AMD64)]\r\nFREECAD VERSION: ('1', '1', '4', '20260928 (Git shallow)', 'Unknown', '2026/09/28 13:46:34', '(HEAD detached at 4fd3bf320)', '4fd3bf320d9566a27e60069fc8387448aaa3a094')\r\nMODULE PySide: ok\r\nMODULE PySide2: FAIL ModuleNotFoundError: No module named 'PySide2'\r\nMODULE PySide6: ok\r\nPySide6 imports: ok\r\nQtGui.QMessageBox: FAIL ImportError: cannot import name 'QMessageBox' from 'PySide6.QtGui' (<FREECAD_INSTALL>\\Lib\\site-packages\\PySide6\\QtGui.cp311-win_amd64.pyd)\r\nQtWidgets.QMessageBox: AVAILABLE\r\nQDialog.exec exists: True\r\nQDialog.exec_ exists: True\r\ncurrentIndexChanged args after addItem: (0,)\r\ncurrentIndexChanged args after setCurrentIndex: (1,)\r\nVarSet Name: MyVars | TypeId: App::VarSet | isDerivedFrom App::VarSet: True\r\nsecond varset internal name: Other\r\nDocument object-methods: ['ActiveObject', 'Objects', 'RootObjects', 'RootObjectsIgnoreLinks', 'TopologicalSortedObjects', 'addObject', 'copyObject', 'findObjects', 'getObject', 'getObjectsByLabel', 'getUniqueObjectName', 'moveObject', 'removeObject']\r\ngetObjectsByType FAIL: AttributeError: 'App.Document' object has no attribute 'getObjectsByType'\r\nisDerivedFrom filter: ['MyVars', 'Other']\r\nPropertiesList: ['ExpressionEngine', 'Label', 'Label2', 'Visibility']\r\nobj.Properties FAIL: AttributeError: 'App.DocumentObject' object has no attribute 'Properties'\r\nafter addProperty PropertiesList: ['ExpressionEngine', 'Label', 'Label2', 'Visibility', 'Width']\r\nobj.Properties FAIL: AttributeError: 'App.DocumentObject' object has no attribute 'Properties'\r\nhasattr obj.Properties: False\r\nhelp(findObjects):\r\nfindObjects([Type=string], [Name=string], [Label=string]) -> list Return a list of objects that match the specified type, name or label. Name and label support regular expressions. All parameters are optional.\r\nfindObjects FAIL: ValueError: <string>(91)<class 'ValueError'>: Empty module name\r\nExpressionEngine type: list\r\nExpressionEngine repr: [('Len', '<<MyVars>>.Width * 2')]\r\niter(ee): [('Len', '<<MyVars>>.Width * 2')]\r\nee.items() FAIL: AttributeError 'list' object has no attribute 'items'\r\nlen(ee): 1 | bool(empty ee): False\r\ngetObjectsByLabel('MyVars'): ['MyVars']\r\nApp.evalExpression FAIL: AttributeError module 'FreeCAD' has no attribute 'evalExpression'\r\nDocumentObject.evalExpression('1+1'): 2\r\nPROBE DONE\r\n\n--- probe2.py (findObjects kwargs / signal availability) ---\r\nfindObjects(Type='App::VarSet'): ['MyVars']\r\nfindObjects(Name regex): ['MyVars']\r\nQComboBox.activated exists: True\r\nQMessageBox.critical exists: True\r\nPROBE2 DONE\r\n
+=====================================================================
+PROBE RESULTS - FreeCAD 1.1.4 (Libs 1.1.4R20260928), Python 3.11.14
+Host: Windows, freecadcmd.exe headless, QT_QPA_PLATFORM=offscreen
+Date: 2026-11-15
+=====================================================================
+
+--- probe_api.py (full run) ---
+PYTHON: 3.11.14 | packaged by conda-forge | (main, Oct 13 2025, 14:00:26) [MSC v.1944 64 bit (AMD64)]
+FREECAD VERSION: ('1', '1', '4', '20260928 (Git shallow)', 'Unknown', '2026/09/28 13:46:34', '(HEAD detached at 4fd3bf320)', '4fd3bf320d9566a27e60069fc8387448aaa3a094')
+MODULE PySide: ok
+MODULE PySide2: FAIL ModuleNotFoundError: No module named 'PySide2'
+MODULE PySide6: ok
+PySide6 imports: ok
+QtGui.QMessageBox: FAIL ImportError: cannot import name 'QMessageBox' from 'PySide6.QtGui' (<FREECAD_INSTALL>\Lib\site-packages\PySide6\QtGui.cp311-win_amd64.pyd)
+QtWidgets.QMessageBox: AVAILABLE
+QDialog.exec exists: True
+QDialog.exec_ exists: True
+currentIndexChanged args after addItem: (0,)
+currentIndexChanged args after setCurrentIndex: (1,)
+VarSet Name: MyVars | TypeId: App::VarSet | isDerivedFrom App::VarSet: True
+second varset internal name: Other
+Document object-methods: ['ActiveObject', 'Objects', 'RootObjects', 'RootObjectsIgnoreLinks', 'TopologicalSortedObjects', 'addObject', 'copyObject', 'findObjects', 'getObject', 'getObjectsByLabel', 'getUniqueObjectName', 'moveObject', 'removeObject']
+getObjectsByType FAIL: AttributeError: 'App.Document' object has no attribute 'getObjectsByType'
+isDerivedFrom filter: ['MyVars', 'Other']
+PropertiesList: ['ExpressionEngine', 'Label', 'Label2', 'Visibility']
+obj.Properties FAIL: AttributeError: 'App.DocumentObject' object has no attribute 'Properties'
+after addProperty PropertiesList: ['ExpressionEngine', 'Label', 'Label2', 'Visibility', 'Width']
+obj.Properties FAIL: AttributeError: 'App.DocumentObject' object has no attribute 'Properties'
+hasattr obj.Properties: False
+help(findObjects):
+findObjects([Type=string], [Name=string], [Label=string]) -> list Return a list of objects that match the specified type, name or label. Name and label support regular expressions. All parameters are optional.
+findObjects FAIL: ValueError: <string>(91)<class 'ValueError'>: Empty module name
+ExpressionEngine type: list
+ExpressionEngine repr: [('Len', '<<MyVars>>.Width * 2')]
+iter(ee): [('Len', '<<MyVars>>.Width * 2')]
+ee.items() FAIL: AttributeError 'list' object has no attribute 'items'
+len(ee): 1 | bool(empty ee): False
+getObjectsByLabel('MyVars'): ['MyVars']
+App.evalExpression FAIL: AttributeError module 'FreeCAD' has no attribute 'evalExpression'
+DocumentObject.evalExpression('1+1'): 2
+PROBE DONE
+
+--- probe2.py (findObjects kwargs / signal availability) ---
+findObjects(Type='App::VarSet'): ['MyVars']
+findObjects(Name regex): ['MyVars']
+QComboBox.activated exists: True
+QMessageBox.critical exists: True
+PROBE2 DONE
