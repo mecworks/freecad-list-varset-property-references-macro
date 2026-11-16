@@ -1,0 +1,23 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  unit-tests:
+    name: Unit tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # Plain CPython suite -- no FreeCAD required. The freecadcmd-based
+      # suites (tests/run_capture.py, tests/test_distro_e2e.py) need a
+      # FreeCAD installation and are run locally / in a FreeCAD container.
+      - name: Run unit tests
+        run: python tests/test_core_unit.py
