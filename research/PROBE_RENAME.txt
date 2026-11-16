@@ -1,0 +1,76 @@
+FreeCAD 1
+
+=== S1: build + save + verify baseline (expression set BEFORE save) ===
+S1: open documents = ['Dep', 'Master']
+S1: doc 'Master': Vars.X = 7.0 mm
+S1: Dep.P.Len = 21.0 mm
+S1: Dep.P.State = ['Up-to-date']
+S1: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+S1: expecting P.Len == 21 mm
+
+=== S2: rename master on disk, then open ONLY Dep ===
+S2: renamed Master.FCStd -> Renamed.FCStd
+S2: open documents = ['Dep']
+S2: Dep.P.Len = 21.0 mm
+S2: Dep.P.State = ['Up-to-date']
+S2: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+S2-post-recompute: open documents = ['Dep']
+S2-post-recompute: Dep.P.Len = 21.0 mm
+S2-post-recompute: Dep.P.State = ['Up-to-date']
+S2-post-recompute: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+
+=== S3: open renamed master normally (doc name 'Renamed'), recompute Dep ===
+S3-pre: open documents = ['Dep', 'Renamed']
+S3-pre: doc 'Renamed': Vars.X = 7.0 mm
+S3-pre: Dep.P.Len = 21.0 mm
+S3-pre: Dep.P.State = ['Up-to-date']
+S3-pre: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+S3-post-recompute: open documents = ['Dep', 'Renamed']
+S3-post-recompute: doc 'Renamed': Vars.X = 7.0 mm
+S3-post-recompute: Dep.P.Len = 21.0 mm
+S3-post-recompute: Dep.P.State = ['Up-to-date']
+S3-post-recompute: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+
+=== S4: try to load renamed file UNDER THE OLD NAME ===
+S4: App attrs (open/read/load): ['__loader__', 'loadFile', 'open', 'openDocument']
+S4: Document attrs (read/open/load): ['load', 'openTransaction']
+S4: Document.load() succeeded
+S4-pre: open documents = ['Dep', 'Master']
+S4-pre: doc 'Master': Vars.X = 7.0 mm
+S4-pre: Dep.P.Len = 21.0 mm
+S4-pre: Dep.P.State = ['Up-to-date']
+S4-pre: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+S4-post-recompute: open documents = ['Dep', 'Master']
+S4-post-recompute: doc 'Master': Vars.X = 7.0 mm
+S4-post-recompute: Dep.P.Len = 21.0 mm
+S4-post-recompute: Dep.P.State = ['Up-to-date']
+S4-post-recompute: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+
+=== S5: control -- restore original name, open Dep + Master normally ===
+S5: restored Master.FCStd
+S5-pre: open documents = ['Dep', 'Master']
+S5-pre: doc 'Master': Vars.X = 7.0 mm
+S5-pre: Dep.P.Len = 21.0 mm
+S5-pre: Dep.P.State = ['Up-to-date']
+S5-pre: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+S5-post-recompute: open documents = ['Dep', 'Master']
+S5-post-recompute: doc 'Master': Vars.X = 7.0 mm
+S5-post-recompute: Dep.P.Len = 21.0 mm
+S5-post-recompute: Dep.P.State = ['Up-to-date']
+S5-post-recompute: Dep.P.ExpressionEngine = [('Len', 'Master#Vars.X * 3')]
+
+=== S6: READ-ONLY on your own real files (nothing is saved) ===
+S6: opened master in 2.2s
+S6: opened dependent in 4.1s total
+S6: open documents = ['Chassis_File', 'Master_File', 'Assembly_File', 'Dependent_File', 'Fan_File']
+S6: Pad.Length = 5.0 mm
+S6: Pad.State = ['Touched', 'Invalid']
+S6: Pad.ExpressionEngine = [('Length', 'FanMount_File#VarSet.WallThickness')]
+S6: Master_File.VarSet.RackEarWidth = 250.0 mm
+S6: Master_File.VarSet.WallThickness = 5.0 mm
+S6: recompute took 0.0s
+S6: POST-recompute Pad.Length = 5.0 mm
+S6: POST-recompute Pad.State = ['Touched', 'Invalid']
+S6: objects flagged Invalid/Error after recompute: ['Pad']
+
+=== DONE ===

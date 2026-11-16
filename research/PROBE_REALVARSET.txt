@@ -1,0 +1,8 @@
+documents: ['Master_File']
+VarSet is None? False
+repr          : <App::VarSet object>
+TypeId        : App::VarSet
+isDerivedFrom App::VarSet: True
+isDerivedFrom App::FeaturePython: False
+PropertiesList: [ ... 24 entries redacted: property names of a private model; rerun research/probe_realvarset.py against your own document to observe the shape ... ]
+all App::VarSet-derived objects in doc: ['VarSet']

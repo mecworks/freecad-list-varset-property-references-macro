@@ -1,0 +1,18 @@
+FreeCAD 1
+opened both real files in 1.5s
+documents: ['Chassis_File', 'Master_File', 'Assembly_File', 'Dependent_File', 'Fan_File']
+baseline: WallThickness = 5.0 mm
+baseline: Pad.Length = 5.0 mm  State = ['Touched', 'Invalid']
+baseline: Pad.ExpressionEngine = [('Length', 'FanMount_File#VarSet.WallThickness')]
+
+--- TEST A: WallThickness 5 -> 6 (in memory only) ---
+recompute took 0.1s
+AFTER: Pad.Length = 5.0 mm  State = ['Touched', 'Invalid']
+AFTER: WallThickness = 6.0 mm
+TEST A verdict: DEAD (stayed at 5.0 mm)
+
+--- TEST B: new in-memory binding to current name ---
+B: LiveProbe.Len = 12.0 mm  (expected 12 mm if current-name refs propagate)
+B: LiveProbe.ExpressionEngine = [('Len', 'Master_File#VarSet.WallThickness * 2')]
+
+NOTE: nothing was saved; closing documents now.

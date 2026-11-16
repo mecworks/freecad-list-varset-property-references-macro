@@ -1,0 +1,9 @@
+tmpdir: <TEMP>\fc_dr4_u_sh6ann
+E1: reopened Vars.PropertiesList = ['ExpressionEngine', 'Label', 'Label2', 'Visibility', 'W']
+E1: reopened Src.PropertiesList   = ['ExpressionEngine', 'Label', 'Label2', 'Len', 'Proxy', 'Visibility']
+E1: Vars.W = 4.0
+E2: no-proxy consumer RAISED ParserError: Failed to parse expression 'DiskMaster#Vars.W * 2'
+E3: <<Label>> form RAISED ParserError: Failed to parse expression 'DiskMaster#<<Vars>>.W * 2'
+E4: local VarSet ref RAISED ParserError: Failed to parse expression 'LocalVars.W * 2'
+E4: LocalCtl.Len = 0.0 (expect 6.0)
+E5: post-touch cross-doc RAISED ParserError: Failed to parse expression 'DiskMaster#Vars.W * 2'

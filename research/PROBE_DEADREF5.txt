@@ -1,0 +1,7 @@
+tmpdir: <TEMP>\fc_deadref5_bdp9hnwq
+P1: setExpression ACCEPTED (no exception)
+P1: ExpressionEngine: [('Len', 'GhostDoc#Vars.Width * 2')]
+P1: state: ['Touched', 'Invalid']  Len = 0.0
+P3: after opening GhostDoc: state: ['Up-to-date']  Len = 198.0 (expect 198.0 if revived)
+P2: uppercase-name setExpression ACCEPTED
+P2: with 'ghostdoc2' open, expr 'GHOSTDOC2#...': state: ['Touched', 'Invalid']  Len = 0.0 (expect 55.0 if case-insensitive)
