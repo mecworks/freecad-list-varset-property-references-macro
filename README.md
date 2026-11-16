@@ -1,19 +1,30 @@
 # VarSet Property References Finder
 
-By **Marc Christensen** &lt;mecworks@gmail.com&gt;. Licensed under
-**LGPL-2.1-or-later** (see [LICENSE](LICENSE)).
+## What this macro does
 
-Improved rewrite of the legacy `ListVarsetPropertyUsage.FCMacro` for
-**FreeCAD 1.1+** (Qt6 / PySide6), shipped under the new name
-**`ListVarSetPropertyReferences.FCMacro`** so it cannot be confused with the
-original macro of the same basename. Pick a VarSet and one of its properties,
-and the dialog lists every expression that references *that* property —
-matched by both reference styles (`Name.Prop` and `<<Label>>.Prop`), so no
-false positives from other objects with same-named properties. By default it
-scans **all open documents**, because FreeCAD allows cross-file references
-(`OtherDoc#VarSet.Prop`); foreign usages are prefixed with `[<document>]`,
-and lines whose expression points at a document that is **not open** are
-flagged with `(!)` (dead binding).
+In FreeCAD, a **VarSet** is a small object that stores named values —
+parameters like `Width = 40 mm` or `HoleDia = 8 mm`. Instead of typing a
+fixed number into a feature, you can write a formula that reads from the
+VarSet (for example, a pad length of `Vars.Width * 2`), so changing the
+variable once updates every feature that uses it.
+
+The catch: FreeCAD has no built-in way to show *where* a variable is used.
+Before renaming or deleting one — or when a dimension mysteriously stops
+updating — you'd have to comb through every formula by hand.
+
+This macro fills that gap. It opens a dialog where you pick a VarSet and one
+of its variables (FreeCAD calls them *properties*); the dialog then lists
+**every formula in every open document that references that variable** — one
+line per usage, with a count. It recognizes both reference styles
+(`Vars.Width` and `<<My Vars>>.Width`), so other objects with coincidentally
+similar names don't cause false hits. Because FreeCAD lets one file's
+formulas reach into another open file, the scan covers all open documents by
+default: usages from other files carry a `[DocumentName]` prefix, and
+formulas pointing at a document that is **not open** are flagged with `(!)` —
+a silently broken link that no longer follows the variable (see
+[Cross-file references](#cross-file-references) below).
+
+Works on FreeCAD 1.1 or newer; no third-party packages required.
 
 > **To install:** use ONLY the generated
 > [`ListVarSetPropertyReferences.FCMacro`](ListVarSetPropertyReferences.FCMacro)
@@ -21,7 +32,9 @@ flagged with `(!)` (dead binding).
 > "DEVELOPMENT COPY -- do not install"; never drop them into your Macro
 > folder.
 
-Full analysis of the original macro, with evidence: see **[REPORT.md](REPORT.md)**.
+Development background: full analysis of the legacy
+`ListVarsetPropertyUsage.FCMacro` this project supersedes, with captured
+evidence: see **[REPORT.md](REPORT.md)**.
 Macro file-convention research behind the packaging decision:
 [`research/MACRO_CONVENTIONS.md`](research/MACRO_CONVENTIONS.md).
 
