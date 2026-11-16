@@ -86,7 +86,7 @@ def _docstring_end_index(lines):
     """Index of the line closing the module docstring ('""')."""
     seen_open = False
     for i, line in enumerate(lines):
-        if line.strip() == '""":
+        if line.strip() == '"""':
             if seen_open:
                 return i
             seen_open = True
