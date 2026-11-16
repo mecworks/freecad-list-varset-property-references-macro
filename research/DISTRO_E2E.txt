@@ -1,0 +1,29 @@
+PASS D0 build produces the distro file
+PASS D1 generated file parses
+PASS D2 embedded core byte-identical to src/varset_usage_core_dev.py
+PASS D2 metadata field present: __Name__
+PASS D2 metadata field present: __Version__
+PASS D2 metadata field present: __License__
+PASS D2 metadata field present: __Requires__
+PASS D2 metadata field present: __Help__
+PASS D3 standalone exec clean (empty folder, no sibling core)
+PASS D3 core loaded from embedded copy
+PASS D3 no load error recorded
+PASS D3 __main__ guard fired main()
+PASS D3 main() reported missing active document
+PASS D4 dialog constructed from distro namespace
+PASS D4 property combo lists Width
+PASS D4 count header is 3 usage(s)
+PASS D4 local usage plain
+PASS D4 cross-doc usage prefixed
+PASS D4 dead reference flagged with marker + doc prefix
+PASS D4 legend names the missing document
+PASS D4 superset-named decoy excluded
+PASS D4 unchecked -> local only
+PASS D5 second exec clean
+PASS D5 second exec reloads embedded core
+PASS D6 dev macro exec clean
+PASS D6 dev macro loads sibling core (not embedded)
+PASS D6 sys.path unchanged
+
+0 failure(s)

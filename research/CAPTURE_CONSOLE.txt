@@ -1,0 +1,4 @@
+Exception while processing file: <PROJECT_ROOT>/tests/run_capture.py [Failed to parse expression 'DeadMaster#Vars.W * 2']
+FreeCAD 1.1.4, Libs: 1.1.4R20260928 (Git shallow)
+(C) 2001-2026 FreeCAD contributors
+FreeCAD is free and open-source software licensed under the terms of LGPL2+ license.

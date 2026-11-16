@@ -1,0 +1,31 @@
+PASS find_varsets finds all three VarSets
+PASS user_properties lists only custom props
+PASS STANDARD_PROPERTIES matches bare VarSet (drift check)
+PASS anchored match count == 2
+PASS internal-name reference matched
+PASS <<label>> reference matched
+PASS decoy VarSet excluded
+PASS superset-named object excluded
+PASS unrelated expression excluded
+PASS expression text preserved
+PASS report has one line per usage
+PASS cross-doc reference resolves (10mm * 2)
+PASS home-only scan misses cross-doc usage
+PASS multi-doc scan finds cross-doc usage
+PASS multi-doc report prefixes foreign doc only
+PASS ghost-doc setExpression accepted
+PASS PhantomDoc absent from open documents
+PASS unresolved_doc_names flags the ghost reference
+PASS ghost report carries marker and legend
+PASS pre-rename binding live (4mm * 2)
+PASS binding survives reopen verbatim
+PASS old doc name absent from open documents
+PASS unresolved_doc_names flags the dead reference
+PASS multi-doc report flags the dead line only
+PASS fresh current-name binding resolves (4.0)
+PASS live line unflagged alongside dead line
+PASS macro file parses
+
+0 failure(s) out of 27 checks
+
+EXIT_CODE=0
