@@ -1,0 +1,20 @@
+A: module-level exec clean (no SystemExit): True
+A: core loaded: True
+A: sys.path unchanged: True
+A: core.usage_pattern callable: True
+B: module-level exec clean (no SystemExit): True
+B: core is None: True
+B: exactly one error dialog shown: True
+B: message names the companion: True
+B: main() safe no-op: True
+C: cross-doc value = 30.0 mm (expected 30 mm)
+C: dialog constructed: True
+C: varset entries: ['Dims'] / userData=Dims
+C: scan-all checkbox present & checked: True
+C: property items: ['Width']
+C: results text (all docs): '2 usage(s):\n\nPad.Len = Dims.Width * 2\n[SmokeVent] VP.Len = SmokeDoc#Dims.Width * 3'
+C: local usage unprefixed: True
+C: foreign usage prefixed: True
+C: superset decoy excluded: True
+C: unchecked -> local only: True
+C: monospace style hint applied: True

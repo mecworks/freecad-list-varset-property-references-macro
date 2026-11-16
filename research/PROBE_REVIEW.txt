@@ -1,0 +1,7 @@
+=== probe_review ===
+QFont.setStyleHint FAILED: AttributeError('Fixed')
+QFont.setFamily(QFont.Fixed) FAILED: AttributeError("type object 'PySide6.QtGui.QFont' has no attribute 'Fixed'")
+QFont.setFixed absent: AttributeError("'PySide6.QtGui.QFont' object has no attribute 'setFixed'")
+importlib load of varset_usage_core: OK, has usage_pattern=True STANDARD_PROPERTIES=['ExpressionEngine', 'Label', 'Label2', 'Visibility']
+bare VarSet PropertiesList: ['ExpressionEngine', 'Label', 'Label2', 'Visibility']
+matches pinned STANDARD_PROPERTIES: True

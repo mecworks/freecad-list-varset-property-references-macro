@@ -1,0 +1,12 @@
+=== probe_review2 ===
+PySide6 version: 6.8.3
+QFont attrs (family/style/fixed): ['Style', 'StyleHint', 'StyleStrategy', 'defaultFamily', 'families', 'family', 'fixedPitch', 'setFamilies', 'setFamily', 'setFixedPitch', 'setStyle', 'setStyleHint', 'setStyleName', 'setStyleStrategy', 'style', 'styleHint', 'styleName', 'styleStrategy']
+StyleHint: ['AnyStyle', 'Courier', 'Cursive', 'Fantasy', 'Helvetica', 'Monospace', 'OldEnglish', 'System', 'Times']
+FontFamily missing: AttributeError("type object 'PySide6.QtGui.QFont' has no attribute 'FontFamily'")
+Weight: ['Black', 'Bold', 'DemiBold', 'ExtraBold', 'ExtraLight', 'Light', 'Medium', 'Normal', 'Thin', 'as_integer_ratio', 'bit_count', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+Capitalization: ['AllLowercase', 'AllUppercase', 'Capitalize', 'MixedCase', 'SmallCaps']
+OK   setStyleHint(StyleHint.Monospace): family='' styleHint=StyleHint.Monospace fixedPitch=False
+FAIL setStyleHint(StyleHint.Fixed): AttributeError('Fixed')
+FAIL setFamily(FontFamily.Monospace): AttributeError("type object 'PySide6.QtGui.QFont' has no attribute 'FontFamily'")
+OK   setFamily("Consolas"): family='Consolas' styleHint=StyleHint.AnyStyle fixedPitch=False
+OK   setFixedPitch(True): family='' styleHint=StyleHint.AnyStyle fixedPitch=True

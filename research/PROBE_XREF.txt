@@ -1,0 +1,27 @@
+FreeCAD 1
+A: docA.Name='Master_File' docA.Label='Master_File'
+A: VarSet.Name='VarSet' VarSet.Label='VarSet'
+
+=== X1: user's exact syntax  Master_File#VarSet.RackEarWidth * 2 ===
+X1: setExpression accepted: True
+X1: Part.ExpressionEngine = [('Len', 'Master_File#VarSet.RackEarWidth * 2')]
+X1: Part.Len = 10.0 mm  (expected 10 mm if resolved)
+
+=== X2: label form  Master_File#<<Master Vars>>.RackEarWidth ===
+X2: setExpression accepted: True
+X2: Part.ExpressionEngine = [('Len', 'Master_File#<<Master Vars>>.RackEarWidth * 3')]
+X2: Part.Len = 15.0 mm  (expected 15 mm if resolved)
+
+=== X3: macro impact -- pattern + per-document scans ===
+X3: pattern.search(cross-ref text) = True
+X3: find_usages(docA/home, ...) = []
+X3: find_usages(docB/foreign, ...) = [('Part.Len', 'Master_File#<<Master Vars>>.RackEarWidth * 3')]
+
+=== X4: close the base file, recompute derived ===
+X4: Part.Len with base CLOSED = 15.0 mm
+X4: Part.ExpressionEngine still = [('Len', 'Master_File#<<Master Vars>>.RackEarWidth * 3')]
+
+=== X5: reopen the base file, recompute derived ===
+X5: Part.Len with base REOPENED = 15.0 mm
+
+=== DONE ===
