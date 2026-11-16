@@ -710,7 +710,7 @@ def main():
 
     if not core.find_varsets(doc):
         _fatal(
-            "No {} objects found in '{}'".format(core.VARSET_TYPE_ID, doc.Label)
+            "No {} objects found in '{}'.".format(core.VARSET_TYPE_ID, doc.Label)
         )
         return
 
